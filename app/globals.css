@@ -37,16 +37,57 @@ textarea {
   background: color-mix(in srgb, var(--teal) 22%, white);
 }
 
+.question-card,
+.report-shell {
+  animation: fadeSlide 280ms ease;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media print {
   :root {
     --background: #ffffff;
   }
 
+  html,
   body {
     background: #ffffff;
   }
 
   .print-hidden {
     display: none !important;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .report-shell {
+    gap: 1rem !important;
+  }
+
+  a {
+    color: #0f766e !important;
+    text-decoration: none;
+  }
+
+  @page {
+    size: auto;
+    margin: 0.55in;
   }
 }
